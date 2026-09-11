@@ -1,367 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadrack Baraka Mwahanga</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; }
-        
-        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e5e5; z-index: 100; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        nav a { text-decoration: none; color: #1a1a1a; font-weight: 500; }
-        nav .links a { margin-left: 2rem; font-size: 0.9rem; }
-        
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; background: #fafafa; }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
-        .hero p { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto 2rem; }
-        .hero .cta { display: inline-block; padding: 0.8rem 2rem; background: #1a1a1a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; }
-        
-        section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
-        h2 { font-size: 2rem; margin-bottom: 2rem; font-weight: 700; }
-        
-        .project { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
-        .project h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-        .project .tag { display: inline-block; padding: 0.2rem 0.8rem; background: #1a1a1a; color: #fff; border-radius: 20px; font-size: 0.75rem; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-        .project p { color: #555; margin-top: 1rem; }
-        .project .tech { margin-top: 1rem; font-size: 0.85rem; color: #888; }
-        
-        .certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-        .cert { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.2rem; }
-        .cert .platform { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
-        .cert .name { font-weight: 600; margin-top: 0.3rem; }
-        .cert a { font-size: 0.8rem; color: #1a1a1a; text-decoration: underline; }
-        
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; margin-bottom: 3rem; }
-        .stat .number { font-size: 3rem; font-weight: 700; }
-        .stat .label { color: #888; font-size: 0.9rem; }
-        
-        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid #e5e5e5; color: #888; font-size: 0.85rem; }
-        footer a { color: #1a1a1a; }
-        
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            .stats { grid-template-columns: 1fr; }
-            nav .links a { margin-left: 1rem; font-size: 0.8rem; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shadrack Baraka Mwahanga · Engineer</title>
+<meta name="description" content="Engineer and law student at Kabarak University. Offline AI, legal tech, field systems for Kenya." />
+<style>
+  :root {
+    --bg: #070B14;
+    --bg2: #0B1220;
+    --panel: #0F172A;
+    --line: #1E293B;
+    --text: #E2E8F0;
+    --muted: #94A3B8;
+    --dim: #64748B;
+    --cyan: #22D3EE;
+    --violet: #818CF8;
+    --pink: #F472B6;
+    --green: #34D399;
+    --amber: #F59E0B;
+    --font: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { color: #67E8F9; }
+
+  /* nav */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(7,11,20,0.85); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.9rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font);
+  }
+  .brand { color: var(--text); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; }
+  .brand span { color: var(--cyan); }
+  .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .nav-links a { color: var(--muted); font-size: 0.82rem; transition: color .15s; }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* hero */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 1.5rem 4rem;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(34,211,238,0.08), transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(129,140,248,0.06), transparent 50%),
+                var(--bg);
+  }
+  #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; }
+  .kicker {
+    font-family: var(--font); font-size: 0.75rem; letter-spacing: 3px;
+    color: var(--cyan); margin-bottom: 1rem; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 1rem;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2rem; }
+  .cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 0.75rem 1.4rem; border-radius: 8px;
+    font-family: var(--font); font-size: 0.88rem; font-weight: 500;
+    border: 1px solid var(--cyan); color: var(--cyan);
+    transition: background .15s, transform .15s;
+  }
+  .btn:hover { background: rgba(34,211,238,0.1); transform: translateY(-1px); color: var(--cyan); }
+  .btn.solid { background: var(--cyan); color: var(--bg); }
+  .btn.solid:hover { background: #67E8F9; color: var(--bg); }
+
+  /* ticker */
+  .ticker {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--bg2); overflow: hidden; white-space: nowrap;
+    padding: 0.7rem 0; font-family: var(--font); font-size: 0.78rem; color: var(--dim);
+  }
+  .ticker-inner { display: inline-block; animation: scroll 40s linear infinite; }
+  .ticker-inner span { margin: 0 1.5rem; }
+  .ticker-inner b { color: var(--cyan); font-weight: 500; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* sections */
+  section { padding: 5rem 1.5rem; max-width: 980px; margin: 0 auto; }
+  .sec-label {
+    font-family: var(--font); font-size: 0.72rem; letter-spacing: 3px;
+    color: var(--violet); text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  .lead { color: var(--muted); max-width: 640px; margin-bottom: 2rem; }
+
+  /* stats */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem; margin-bottom: 1rem;
+  }
+  .stat-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 1.25rem; text-align: center;
+  }
+  .stat-card .num {
+    font-family: var(--font); font-size: 2rem; font-weight: 700; color: var(--cyan);
+  }
+  .stat-card:nth-child(2) .num { color: var(--violet); }
+  .stat-card:nth-child(3) .num { color: var(--green); }
+  .stat-card:nth-child(4) .num { color: var(--pink); }
+  .stat-card .lbl { font-size: 0.78rem; color: var(--dim); margin-top: 0.25rem; font-family: var(--font); }
+
+  /* timeline */
+  .timeline { border-left: 1px solid var(--line); padding-left: 1.5rem; margin-left: 0.5rem; }
+  .t-item { position: relative; padding-bottom: 1.75rem; }
+  .t-item::before {
+    content: ""; position: absolute; left: -1.75rem; top: 0.4rem;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 0 3px rgba(34,211,238,0.15);
+  }
+  .t-item:nth-child(2n)::before { background: var(--violet); box-shadow: 0 0 0 3px rgba(129,140,248,0.15); }
+  .t-date { font-family: var(--font); font-size: 0.75rem; color: var(--dim); margin-bottom: 0.2rem; }
+  .t-title { font-weight: 600; margin-bottom: 0.25rem; }
+  .t-desc { color: var(--muted); font-size: 0.92rem; }
+
+  /* projects */
+  .proj-grid { display: grid; gap: 1rem; }
+  .proj {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 1.5rem; transition: border-color .15s, transform .15s;
+  }
+  .proj:hover { border-color: rgba(34,211,238,0.45); transform: translateY(-2px); }
+  .proj.legal { border-left: 3px solid var(--violet); }
+  .proj.edu { border-left: 3px solid var(--cyan); }
+  .proj.field { border-left: 3px solid var(--green); }
+  .proj.pay { border-left: 3px solid var(--amber); }
+  .proj.health { border-left: 3px solid var(--pink); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+  .tag {
+    font-family: var(--font); font-size: 0.68rem; padding: 0.2rem 0.55rem;
+    border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
+  }
+  .proj h3 { font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 600; }
+  .proj p { color: var(--muted); font-size: 0.93rem; }
+  .tech {
+    margin-top: 0.9rem; font-family: var(--font); font-size: 0.75rem; color: var(--dim);
+  }
+  .proj .live { display: inline-block; margin-top: 0.75rem; font-family: var(--font); font-size: 0.8rem; }
+
+  /* certs */
+  .certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
+  .cert {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1rem;
+  }
+  .cert .plat {
+    font-family: var(--font); font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--dim);
+  }
+  .cert.anthropic .plat { color: #F59E0B; }
+  .cert.ms .plat { color: #60A5FA; }
+  .cert.other .plat { color: var(--violet); }
+  .cert .name { font-weight: 600; font-size: 0.92rem; margin: 0.35rem 0 0.5rem; }
+  .cert a { font-size: 0.78rem; font-family: var(--font); }
+  .media-card {
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    margin: 1.5rem 0; background: var(--panel);
+  }
+  .media-card video, .media-card img { width: 100%; display: block; }
+  .featured {
+    border: 1px solid rgba(34,211,238,0.4); border-radius: 12px; overflow: hidden;
+    margin-top: 1.5rem; background: var(--panel);
+  }
+  .featured-bar {
+    background: linear-gradient(90deg, rgba(34,211,238,0.15), rgba(129,140,248,0.15));
+    padding: 0.55rem 1rem; font-family: var(--font); font-size: 0.75rem;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* contact */
+  .contact-box {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 2rem; text-align: center;
+  }
+  .contact-box p { color: var(--muted); margin-bottom: 1rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; font-family: var(--font); font-size: 0.9rem; }
+
+  footer {
+    text-align: center; padding: 2.5rem 1.5rem; border-top: 1px solid var(--line);
+    color: var(--dim); font-size: 0.8rem; font-family: var(--font);
+  }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  @media (max-width: 600px) {
+    .nav-links { gap: 0.7rem; }
+    .nav-links a { font-size: 0.72rem; }
+    section { padding: 3.5rem 1.1rem; }
+  }
+</style>
 </head>
 <body>
-    <nav>
-        <a href="#">Shadrack Mwahanga</a>
-        <div class="links">
-            <a href="#projects">Projects</a>
-            <a href="#certs">Certs</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
 
-    <div class="hero">
-        <div>
-            <h1>Shadrack Baraka Mwahanga</h1>
-            <p>First year law student at Kabarak University. I build AI tools that run offline for students who cannot afford data.</p>
-            <a href="#projects" class="cta">See my work</a>
-        </div>
+<nav>
+  <a class="brand" href="#">shadrack<span>.</span>build</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="kicker">Engineer · LLB Kabarak · Nairobi</div>
+    <h1>Systems that hold up<br /><span class="grad">on real networks.</span></h1>
+    <p>Offline AI, legal tech, field ops, campus infrastructure. Built for feature phones, intermittent data, and M-Pesa rails.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#projects">Selected work</a>
+      <a class="btn" href="https://github.com/shadrackb1" target="_blank" rel="noopener">GitHub</a>
     </div>
+  </div>
+</header>
 
-    <section id="about">
-        <h2>About</h2>
-        <p>First year law student at Kabarak University. Got into AI during my first year when I realized most students here have no idea how to use these tools. Started building things. Now I lead a team working on Research in a Stick, a USB-based AI that runs offline for students without internet. I also hold 24 certifications in AI, 15 from Anthropic.</p>
-    </section>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span><b>RIS</b> · 4.5M students target</span>
+    <span><b>KSAS</b> · 5-layer attendance security</span>
+    <span><b>USSD</b> · works without a smartphone</span>
+    <span><b>24</b> AI certifications</span>
+    <span><b>47</b> counties in field-ops scope</span>
+    <span><b>Ollama</b> · LangChain · ChromaDB · Kiwix</span>
+    <span><b>RIS</b> · 4.5M students target</span>
+    <span><b>KSAS</b> · 5-layer attendance security</span>
+    <span><b>USSD</b> · works without a smartphone</span>
+    <span><b>24</b> AI certifications</span>
+    <span><b>47</b> counties in field-ops scope</span>
+    <span><b>Ollama</b> · LangChain · ChromaDB · Kiwix</span>
+  </div>
+</div>
 
-    <section id="timeline">
-        <h2>What I've Been Up To</h2>
-        <div style="border-left: 2px solid #e5e5e5; padding-left: 2rem;">
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Nov 2026</div>
-                <div style="font-weight: 600;">Attending Microsoft Ignite</div>
-                <div style="color: #555;">San Francisco, CA. AI, security, and cloud content. Registered attendee.</div>
-            </div>
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Sep 2026</div>
-                <div style="font-weight: 600;">Research in a Stick enters CRIW 2026</div>
-                <div style="color: #555;">Built an offline AI research tool for Kenyan students. Team of 4.</div>
-            </div>
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Aug 2026</div>
-                <div style="font-weight: 600;">Completed 24th AI certification</div>
-                <div style="color: #555;">Finished the full Anthropic Claude Academy track. 15 badges.</div>
-            </div>
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Jun 2026</div>
-                <div style="font-weight: 600;">First KSAS pilot with the board</div>
-                <div style="color: #555;">Smart attendance system using QR codes and 5-layer security. Pilot went well. Proceeding with next steps.</div>
-            </div>
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Jan 2026</div>
-                <div style="font-weight: 600;">Started building with Claude</div>
-                <div style="color: #555;">Used it for legal research first. Then started building things.</div>
-            </div>
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Jan 2026</div>
-                <div style="font-weight: 600;">Joined Kabarak University</div>
-                <div style="color: #555;">Started studying law. First year, first semester.</div>
-            </div>
-            <div style="margin-bottom: 2rem;">
-                <div style="font-size: 0.8rem; color: #888;">Jan 2026</div>
-                <div style="font-weight: 600;">Started building with Claude</div>
-                <div style="color: #555;">Used it for legal research first. Then started building things.</div>
-            </div>
-        </div>
-    </section>
+<section id="about" class="reveal">
+  <div class="sec-label">01 · About</div>
+  <h2>Constraint first. Product second. Stack last.</h2>
+  <p class="lead">
+    I am a law student at Kabarak University and the team lead behind Research in a Stick.
+    I organize robotics and applied AI workshops on campus. Most of my work solves a gap that
+    looks obvious after you see it: people without reliable internet still need research tools,
+    attendance that cannot be faked by screenshot, and legal knowledge in plain language.
+  </p>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num" data-count="24">0</div><div class="lbl">AI certs</div></div>
+    <div class="stat-card"><div class="num" data-count="15">0</div><div class="lbl">Claude Academy</div></div>
+    <div class="stat-card"><div class="num">4.5M</div><div class="lbl">RIS reach</div></div>
+    <div class="stat-card"><div class="num" data-count="110">0</div><div class="lbl">Repos shipped</div></div>
+  </div>
+</section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        
-        <div class="project">
-            <span class="tag">CRIW 2026</span>
-            <span class="tag">Team Leader</span>
-            <h3>Research in a Stick (RIS)</h3>
-            <p>A USB stick that runs AI offline. No internet, no cloud, no installation. Built for 4.5 million Kenyan students who cannot afford data. Students plug in the USB, open a browser, and get AI chat, a knowledge library, document analysis, and citation formatting.</p>
-            <div class="tech">Python, Ollama, LangChain, ChromaDB, Kiwix, Llama 3.2, Qwen 2.5</div>
-        </div>
+<section id="work" class="reveal">
+  <div class="sec-label">02 · Timeline</div>
+  <h2>What I have been shipping</h2>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-date">Nov 2026</div>
+      <div class="t-title">Microsoft Ignite</div>
+      <div class="t-desc">San Francisco. AI, security, and cloud. Registered attendee.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Sep 2026</div>
+      <div class="t-title">Research in a Stick · CRIW 2026</div>
+      <div class="t-desc">Offline AI research workstation on a USB stick. Team of four. Kabarak University.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Aug 2026</div>
+      <div class="t-title">24th AI certification</div>
+      <div class="t-desc">Full Anthropic Claude Academy track complete. Fifteen badges.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Jun 2026</div>
+      <div class="t-title">KSAS pilot with the board</div>
+      <div class="t-desc">Expiring QR, device binding, five-layer check-in. Pilot cleared. Next phase underway.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Jan 2026</div>
+      <div class="t-title">Joined Kabarak University</div>
+      <div class="t-desc">LLB. First year. Law and code on the same desk.</div>
+    </div>
+  </div>
+</section>
 
-        <div class="project">
-            <span class="tag">Full-Stack</span>
-            <span class="tag">TypeScript</span>
-            <h3>Kabarak Smart Attendance System (KSAS)</h3>
-            <p>QR codes that refresh every 5 seconds. Five layers of security before attendance is recorded — TOTP, GPS geo-fencing, IP range check, device fingerprinting, and token anti-replay. Built with React, TypeScript, Firebase, and Supabase. Gamification and role-based dashboards for Students, Lecturers, Admins, HODs, and Deans. Currently in pilot phase.</p>
-            <div class="tech">React, TypeScript, Firebase, Supabase, Tailwind CSS</div>
-            <p><a href="https://ksas-ten.vercel.app" target="_blank">Live demo</a></p>
-        </div>
+<section id="projects" class="reveal">
+  <div class="sec-label">03 · Products</div>
+  <h2>Selected work</h2>
+  <p class="lead">Flagship systems I designed, built, or lead. Client and campus work lives in the full repo list.</p>
 
-        <div class="project">
-            <span class="tag">AI</span>
-            <span class="tag">Legal Tech</span>
-            <h3>HakiChatBot</h3>
-            <p>AI-powered WhatsApp bot for human rights and agribusiness. Answers legal questions in plain language, explains Kenyan constitutional rights, and helps farmers with market pricing. Built as a Building AI course project.</p>
-            <div class="tech">Python, JavaScript, WhatsApp API</div>
-        </div>
+  <div class="proj-grid">
+    <article class="proj edu">
+      <div class="tags"><span class="tag">CRIW 2026</span><span class="tag">Team leader</span><span class="tag">Offline AI</span></div>
+      <h3>Research in a Stick (RIS)</h3>
+      <p>USB stick that runs AI offline. No internet, no cloud, no install. Plug in, open a browser, get chat, knowledge library, document analysis, and citation formatting in English and Kiswahili. Built for students and researchers the internet misses.</p>
+      <div class="tech">Python · Ollama · LangChain · ChromaDB · Kiwix · Llama 3.2 · Qwen 2.5</div>
+    </article>
 
-        <div class="project">
-            <span class="tag">Civic Tech</span>
-            <span class="tag">Legal</span>
-            <h3>Know Your Rights KE</h3>
-            <p>Kenyan legal rights education platform. Explains the constitution in simple language anyone can understand. Node.js rebuild with Express and EJS templating. Covers arrested rights, land rights, employment rights, and more.</p>
-            <div class="tech">TypeScript, Node.js, Express, EJS</div>
-        </div>
+    <article class="proj edu">
+      <div class="tags"><span class="tag">Campus</span><span class="tag">Security</span><span class="tag">Pilot</span></div>
+      <h3>Kabarak Smart Attendance (KSAS)</h3>
+      <p>QR codes that refresh every five seconds. Device fingerprint, one-time tokens, optional GPS and campus IP. Screenshots of old codes fail by design. Role dashboards for students, lecturers, admins, HODs, and deans.</p>
+      <div class="tech">React · TypeScript · Firebase · Supabase · Tailwind</div>
+      <a class="live" href="https://ksas-ten.vercel.app" target="_blank" rel="noopener">Live demo →</a>
+    </article>
 
-        <div class="project">
-            <span class="tag">USSD</span>
-            <span class="tag">Offline-First</span>
-            <h3>USSD Attendance</h3>
-            <p>Attendance system that works via USSD codes. No smartphone or internet needed. Students dial a code, enter their ID, and attendance is logged. Designed for universities with limited connectivity.</p>
-            <div class="tech">JavaScript, USSD Gateway</div>
-        </div>
+    <article class="proj legal">
+      <div class="tags"><span class="tag">Legal tech</span><span class="tag">Research</span></div>
+      <h3>Juriscore</h3>
+      <p>Legal research for Kenyan law students. Case search, structured briefs, side-by-side comparison, citation generator. Built so students spend time on arguments, not hunting PDFs.</p>
+      <div class="tech">React Native · Expo · FastAPI · Supabase</div>
+    </article>
 
-        <div class="project">
-            <span class="tag">Health Tech</span>
-            <span class="tag">Community</span>
-            <h3>ObomoCare</h3>
-            <p>Care platform connecting communities with health resources. Multiple iterations built to refine the approach — from initial concept to live deployment. Focuses on healthcare access in underserved areas.</p>
-            <div class="tech">TypeScript, React</div>
-        </div>
+    <article class="proj legal">
+      <div class="tags"><span class="tag">Civic tech</span><span class="tag">Literacy</span></div>
+      <h3>Know Your Rights KE</h3>
+      <p>Plain-language legal rights for Kenyan citizens. Arrest, housing, work, traffic, consumer. Mobile-first and offline-friendly so it works on the phones people already have.</p>
+      <div class="tech">React · TypeScript · Node · Express · Firebase</div>
+    </article>
 
-        <div class="project">
-            <span class="tag">Full-Stack</span>
-            <span class="tag">E-Commerce</span>
-            <h3>Efk Battles</h3>
-            <p>Full-stack eFootball tournament platform for Kenya. 100 KES entry fee, M-Pesa payments, WhatsApp notifications, and Blaze by Safaricom branding. Manages tournaments, brackets, and payouts.</p>
-            <div class="tech">JavaScript, M-Pesa API, WhatsApp API</div>
-        </div>
+    <article class="proj field">
+      <div class="tags"><span class="tag">USSD</span><span class="tag">Offline-first</span></div>
+      <h3>USSD Attendance</h3>
+      <p>Check-in on any handset. Dial a code, enter the session code, done. No app, no camera, no data bundle. For campuses and training sites where QR is a luxury.</p>
+      <div class="tech">Node · Express · PostgreSQL · JWT</div>
+    </article>
 
-        <div class="project">
-            <span class="tag">Legal AI</span>
-            <span class="tag">Research</span>
-            <h3>JurisCore</h3>
-            <p>Smart legal research app for Kenyan law students. Helps find case law, statutes, and legal principles quickly. Built to make legal research faster and more accessible.</p>
-            <div class="tech">Python</div>
-        </div>
-    </section>
+    <article class="proj pay">
+      <div class="tags"><span class="tag">Tournaments</span><span class="tag">M-Pesa</span></div>
+      <h3>EFK Battles</h3>
+      <p>Anonymous eFootball Mobile tournaments. KES 100 entry, auto-brackets when all 32 pay, WhatsApp fixtures, screenshot verification. Youth esports partner branding.</p>
+      <div class="tech">Next.js · Supabase · Lipana M-Pesa · WhatsApp</div>
+    </article>
 
-    <section id="stats">
-        <div class="stats">
-            <div class="stat">
-                <div class="number">24</div>
-                <div class="label">Certifications</div>
-            </div>
-            <div class="stat">
-                <div class="number">15</div>
-                <div class="label">Anthropic Badges</div>
-            </div>
-            <div class="stat">
-                <div class="number">4.5M</div>
-                <div class="label">Students RIS Serves</div>
-            </div>
-        </div>
-    </section>
+    <article class="proj field">
+      <div class="tags"><span class="tag">Field ops</span><span class="tag">47 counties</span></div>
+      <h3>Foursons FieldOps</h3>
+      <p>Sites, vehicles, fuel fraud flags, breakdowns, deliveries, worker QR IDs, casual registry, boss dashboard. One record for a team spread across Kenya.</p>
+      <div class="tech">React · TypeScript · Firebase · Maps</div>
+    </article>
 
-    <section id="certs">
-        <h2>Certifications</h2>
-        
-        <div style="margin-bottom: 3rem; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5e5;">
-            <video autoplay muted loop playsinline style="width: 100%; display: block;">
-                <source src="badges-video.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <h3 style="font-size: 1rem; margin-bottom: 1rem; color: #888;">Anthropic Claude Academy (15)</h3>
-        <div class="certs">
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency: Framework & Foundations</div>
-                <a href="https://academy.claude.com/verify/0a0ceadeca69645a3ab862ad15932ccd" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">Claude 101</div>
-                <a href="https://academy.claude.com/verify/aba71042036e941fcbe4e9ac5bf38c3d" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">Claude Code 101</div>
-                <a href="https://academy.claude.com/verify/9a11d27a075b8427574a2d00ea9f7e18" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">Claude Platform 101</div>
-                <a href="https://academy.claude.com/verify/69c374df6efa1072995e9217e647c621" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">Building Effective Human Agent Teams</div>
-                <a href="https://academy.claude.com/verify/ade1e206f9db411e7121feb1421f8c7e" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for Educators</div>
-                <a href="https://academy.claude.com/verify/c3d59591b5fddc3d84ce367b8c4247de" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for Builders</div>
-                <a href="https://academy.claude.com/verify/474ee3da11277eca2414063256d80a1f" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for Creative Work</div>
-                <a href="https://academy.claude.com/verify/6dca1fe8c393fa100090ee6297aef7b1" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for Small Businesses</div>
-                <a href="https://academy.claude.com/verify/b56a86ecb219d0bc83f9d053e9cefe3b" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for Nonprofits</div>
-                <a href="https://academy.claude.com/verify/915a1775050176a43d02a28fd9bdf302" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for pK-12 Educators</div>
-                <a href="https://academy.claude.com/verify/2343dbc8a63632d5b9ccf39a49c90185" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Fluency for Students</div>
-                <a href="https://academy.claude.com/verify/08feefe9cb3a78f06baa8048fc12516d" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">Teaching AI Fluency</div>
-                <a href="https://academy.claude.com/verify/4d564e17ed333d1d31a3b3dd908700ac" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">Introduction to Claude Cowork</div>
-                <a href="https://academy.claude.com/verify/31b3c294eca0bbc3833ba48322c2df84" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Anthropic</div>
-                <div class="name">AI Capabilities and Limitations</div>
-                <a href="https://academy.claude.com/verify/5436a096fc04bf2aba9fbe3d2be6efbc" target="_blank">Verify</a>
-            </div>
-        </div>
+    <article class="proj health">
+      <div class="tags"><span class="tag">Health</span><span class="tag">Community</span></div>
+      <h3>OBOMOCARE</h3>
+      <p>Community-based organization platform for Kisii and Nyamira. Programs, stories, media pipeline, diaspora engagement.</p>
+      <div class="tech">React · TypeScript · Firebase · PWA · Cloudinary</div>
+    </article>
 
-        <h3 style="font-size: 1rem; margin: 2rem 0 1rem; color: #888;">Microsoft Learn (4)</h3>
-        <div class="certs">
-            <div class="cert">
-                <div class="platform">Microsoft Learn</div>
-                <div class="name">Intro to Generative AI and Agents</div>
-                <a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Microsoft Learn</div>
-                <div class="name">Introduction to AI Concepts</div>
-                <a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Microsoft Learn</div>
-                <div class="name">Explore Generative AI</div>
-                <a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Microsoft Learn</div>
-                <div class="name">Analyze Requirements for AI Solutions</div>
-                <a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank">Verify</a>
-            </div>
-        </div>
+    <article class="proj legal">
+      <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Rights</span></div>
+      <h3>HakiChatBot</h3>
+      <p>WhatsApp bot for human rights and agribusiness questions. Plain language answers on constitutional rights and market pricing.</p>
+      <div class="tech">Python · JavaScript · WhatsApp API</div>
+    </article>
+  </div>
+</section>
 
-        <h3 style="font-size: 1rem; margin: 2rem 0 1rem; color: #888;">Other Platforms (3)</h3>
-        <div class="certs">
-            <div class="cert">
-                <div class="platform">University of Helsinki</div>
-                <div class="name">Elements of AI</div>
-                <a href="https://certificates.mooc.fi/validate/t7ejoyzwnxg" target="_blank">Verify</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Analytics Vidhya</div>
-                <div class="name">Data Science Resume with AI</div>
-                <a href="#" target="_blank">ID: 102ak7rc1n</a>
-            </div>
-            <div class="cert">
-                <div class="platform">Kaggle</div>
-                <div class="name">Python Coder Badge</div>
-                <a href="https://www.kaggle.com/shadrackbarakamwahanga" target="_blank">Profile</a>
-            </div>
-        </div>
-        
-        <div style="margin-top: 2rem; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden;">
-            <img src="elements-of-ai.png" alt="Elements of AI Certificate - Shadrack Mwahanga" style="width: 100%; display: block;">
-        </div>
+<section id="certs" class="reveal">
+  <div class="sec-label">04 · Credentials</div>
+  <h2>24 AI certifications</h2>
+  <p class="lead">Verification links from the platforms. Always check the issuer.</p>
 
-        <div style="margin-top: 3rem; border: 2px solid #1a1a1a; border-radius: 12px; overflow: hidden; position: relative;">
-            <div style="background: #1a1a1a; color: #fff; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Featured Certification</div>
-            <img src="ai-for-everyone.png" alt="AI for Everyone Certificate - Shadrack Mwahanga" style="width: 100%; display: block;">
-        </div>
+  <div class="media-card">
+    <video autoplay muted loop playsinline>
+      <source src="badges-video.mp4" type="video/mp4" />
+    </video>
+  </div>
 
-        <h3 style="font-size: 1rem; margin: 2rem 0 1rem; color: #888;">In Progress (2)</h3>
-        <div class="certs">
-            <div class="cert">
-                <div class="platform">NVIDIA DLI</div>
-                <div class="name">Agentic AI Explained</div>
-                <span style="font-size: 0.8rem; color: #888;">In Progress</span>
-            </div>
-            <div class="cert">
-                <div class="platform">Microsoft Learn</div>
-                <div class="name">Explore Internet Search and Beyond</div>
-                <span style="font-size: 0.8rem; color: #888;">In Progress</span>
-            </div>
-        </div>
-    </section>
+  <h3 style="font-family:var(--font);font-size:0.85rem;color:var(--muted);margin:1.5rem 0 0.75rem;letter-spacing:0.08em;">ANTHROPIC CLAUDE ACADEMY · 15</h3>
+  <div class="certs">
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency: Framework &amp; Foundations</div><a href="https://academy.claude.com/verify/0a0ceadeca69645a3ab862ad15932ccd" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Claude 101</div><a href="https://academy.claude.com/verify/aba71042036e941fcbe4e9ac5bf38c3d" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Claude Code 101</div><a href="https://academy.claude.com/verify/9a11d27a075b8427574a2d00ea9f7e18" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Claude Platform 101</div><a href="https://academy.claude.com/verify/69c374df6efa1072995e9217e647c621" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Building Effective Human Agent Teams</div><a href="https://academy.claude.com/verify/ade1e206f9db411e7121feb1421f8c7e" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Educators</div><a href="https://academy.claude.com/verify/c3d59591b5fddc3d84ce367b8c4247de" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Builders</div><a href="https://academy.claude.com/verify/474ee3da11277eca2414063256d80a1f" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Creative Work</div><a href="https://academy.claude.com/verify/6dca1fe8c393fa100090ee6297aef7b1" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Small Businesses</div><a href="https://academy.claude.com/verify/b56a86ecb219d0bc83f9d053e9cefe3b" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Nonprofits</div><a href="https://academy.claude.com/verify/915a1775050176a43d02a28fd9bdf302" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for pK-12 Educators</div><a href="https://academy.claude.com/verify/2343dbc8a63632d5b9ccf39a49c90185" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Students</div><a href="https://academy.claude.com/verify/08feefe9cb3a78f06baa8048fc12516d" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Teaching AI Fluency</div><a href="https://academy.claude.com/verify/4d564e17ed333d1d31a3b3dd908700ac" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Introduction to Claude Cowork</div><a href="https://academy.claude.com/verify/31b3c294eca0bbc3833ba48322c2df84" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Capabilities and Limitations</div><a href="https://academy.claude.com/verify/5436a096fc04bf2aba9fbe3d2be6efbc" target="_blank" rel="noopener">Verify →</a></div>
+  </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>
-            <a href="mailto:shadrackb@kabarak.ac.ke">shadrackb@kabarak.ac.ke</a><br>
-            <a href="https://linkedin.com/in/shadrackbaraka" target="_blank">LinkedIn</a> · 
-            <a href="https://github.com/shadrackb1" target="_blank">GitHub</a>
-        </p>
-    </section>
+  <h3 style="font-family:var(--font);font-size:0.85rem;color:var(--muted);margin:1.75rem 0 0.75rem;letter-spacing:0.08em;">MICROSOFT LEARN · 4</h3>
+  <div class="certs">
+    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Intro to Generative AI and Agents</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Introduction to AI Concepts</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Explore Generative AI</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Analyze Requirements for AI Solutions</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+  </div>
 
-    <footer>
-        <p>Shadrack Baraka Mwahanga · Kabarak University · Est. 2024</p>
-    </footer>
+  <h3 style="font-family:var(--font);font-size:0.85rem;color:var(--muted);margin:1.75rem 0 0.75rem;letter-spacing:0.08em;">OTHER · 3 + 2 IN PROGRESS</h3>
+  <div class="certs">
+    <div class="cert other"><div class="plat">Helsinki</div><div class="name">Elements of AI</div><a href="https://certificates.mooc.fi/validate/t7ejoyzwnxg" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert other"><div class="plat">AnalyticsV</div><div class="name">Data Science Resume with AI</div><span style="font-size:0.78rem;color:var(--dim);font-family:var(--font)">ID 102ak7rc1n</span></div>
+    <div class="cert other"><div class="plat">Kaggle</div><div class="name">Python Coder Badge</div><a href="https://www.kaggle.com/shadrackbarakamwahanga" target="_blank" rel="noopener">Profile →</a></div>
+    <div class="cert other"><div class="plat">NVIDIA DLI</div><div class="name">Agentic AI Explained</div><span style="font-size:0.78rem;color:var(--dim);font-family:var(--font)">In progress</span></div>
+    <div class="cert other"><div class="plat">Microsoft Learn</div><div class="name">Explore Internet Search and Beyond</div><span style="font-size:0.78rem;color:var(--dim);font-family:var(--font)">In progress</span></div>
+  </div>
+
+  <div class="featured">
+    <div class="featured-bar">Featured certificate</div>
+    <img src="elements-of-ai.png" alt="Elements of AI certificate" />
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="sec-label">05 · Contact</div>
+  <h2>Reach me</h2>
+  <div class="contact-box">
+    <p>Projects, workshops, campus programs, or collaboration.</p>
+    <div class="contact-links">
+      <a href="mailto:shadrackb@kabarak.ac.ke">shadrackb@kabarak.ac.ke</a>
+      <a href="https://linkedin.com/in/shadrackbaraka" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/shadrackb1" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://shadrackb1.github.io/playground/" target="_blank" rel="noopener">Playground</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Shadrack Baraka Mwahanga · Kabarak University · Nairobi
+</footer>
+
+<script>
+// hero particle network
+(function () {
+  const c = document.getElementById('hero-canvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let w, h, pts, raf;
+  function size() {
+    w = c.width = c.offsetWidth * devicePixelRatio;
+    h = c.height = c.offsetHeight * devicePixelRatio;
+    const n = Math.min(70, Math.floor((w * h) / 28000));
+    pts = Array.from({ length: n }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.35 * devicePixelRatio,
+      vy: (Math.random() - 0.5) * 0.35 * devicePixelRatio,
+    }));
+  }
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of pts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+    }
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+        const d = Math.hypot(dx, dy);
+        const max = 140 * devicePixelRatio;
+        if (d < max) {
+          ctx.strokeStyle = 'rgba(34,211,238,' + (0.22 * (1 - d / max)) + ')';
+          ctx.lineWidth = devicePixelRatio * 0.7;
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    for (const p of pts) {
+      ctx.fillStyle = 'rgba(129,140,248,0.7)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.4 * devicePixelRatio, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  size(); frame();
+  addEventListener('resize', size);
+})();
+
+// reveal on scroll
+const io = new IntersectionObserver((es) => {
+  es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// count-up stats
+const cio = new IntersectionObserver((es) => {
+  es.forEach((e) => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.count;
+    let n = 0;
+    const step = Math.max(1, Math.floor(target / 40));
+    const t = setInterval(() => {
+      n = Math.min(target, n + step);
+      el.textContent = n;
+      if (n >= target) clearInterval(t);
+    }, 30);
+    cio.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach((el) => cio.observe(el));
+</script>
 </body>
 </html>
