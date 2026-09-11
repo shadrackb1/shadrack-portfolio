@@ -1,48 +1,42 @@
 # Shadrack Baraka Mwahanga
 
-Full-stack engineer and law student at Kabarak University. I build systems that work under real Kenyan constraints — intermittent power, feature phones, cash-and-M-Pesa economies, and domains where the cost of getting it wrong is high.
+**Systems engineer · Law student · Kabarak University**
 
-**Focus:** legal tech · education · health · field operations · payments
+I do not maintain stacks. I look for the constraints under which software becomes correct — then encode those constraints until failure has nowhere left to hide.
 
-**Contact:** [shadrackb@kabarak.ac.ke](mailto:shadrackb@kabarak.ac.ke) · [LinkedIn](https://www.linkedin.com/in/shadrackbaraka) · [GitHub](https://github.com/shadrackb1)
+```text
+  Preference order:
+    1. invariants
+    2. proofs
+    3. tests
+    4. demos
+    5. frameworks  ← disposable
+```
 
----
+## Where the theory has been forced into production
 
-## Research in a Stick (RIS)
+| Problem | Law I encoded | Repo |
+| --- | --- | --- |
+| Proxy attendance | Identity = device × token × time | [KSAS](https://github.com/shadrackb1/KSAS) |
+| Opaque case law | Legal knowledge is a queryable graph | [Juriscore](https://github.com/shadrackb1/juriscore) |
+| Smartphone gatekeeping | If it survives USSD, it survives Kenya | [ussd-attendance](https://github.com/shadrackb1/ussd-attendance) |
+| Field chaos at scale | One truth, 47 counties | [foursons-fieldops](https://github.com/shadrackb1/foursons-fieldops) |
+| Trustless tournaments | Money in → deterministic bracket | [efk-battles](https://github.com/shadrackb1/efk-battles) |
+| Study without feedback | Learning is a control loop | [law-beyond](https://github.com/shadrackb1/law-beyond) |
+| Care coordination | Realtime state for people who cannot wait | [CareConnect](https://github.com/shadrackb1/careconnect1) |
 
-Team lead. An offline research workstation that boots from a USB stick — no internet, no install, no cloud.
+## Current experiment
 
-- Local LLM chat (English + Kiswahili)
-- Offline knowledge library
-- Document Q&A with citations
-- Citation formatting (APA 7, Vancouver, Harvard)
-- CSV analysis
+**Research in a Stick** — intelligence that boots from USB.
+No cloud. No install. Local models, retrieval, citation, Kiswahili.
+Built for students the internet forgot. CRIW 2026.
 
-**Stack:** Ollama (Llama 3.2 / Qwen 2.5), LangChain, ChromaDB, Kiwix ZIM, Python
+## Contact
 
-Built for Central Rift Valley Innovation Week (CRIW) 2026 at Kabarak University, targeting students and researchers without reliable connectivity.
+**shadrackb@kabarak.ac.ke** · [LinkedIn](https://www.linkedin.com/in/shadrackbaraka) · [GitHub](https://github.com/shadrackb1)
 
----
-
-## Selected products
-
-| Product | Domain |
-| --- | --- |
-| [KSAS](https://github.com/shadrackb1/KSAS) | Campus attendance with anti-fraud QR security |
-| [Juriscore](https://github.com/shadrackb1/juriscore) | Legal research for Kenyan law students |
-| [Law Beyond](https://github.com/shadrackb1/law-beyond) | Study productivity + M-Pesa premium |
-| [USSD Attendance](https://github.com/shadrackb1/ussd-attendance) | Feature-phone check-in |
-| [Foursons FieldOps](https://github.com/shadrackb1/foursons-fieldops) | Multi-county field operations |
-| [EFK Battles](https://github.com/shadrackb1/efk-battles) | eFootball tournament platform |
-| [Mingle](https://github.com/shadrackb1/mingle-app) | Matchmaking for the Kenyan market |
-| [CareConnect](https://github.com/shadrackb1/careconnect1) | Parent–caregiver coordination |
-| [OBOMOCARE](https://github.com/shadrackb1/obomocare-live) | Community organization platform |
-
----
-
-## Engineering principles
-
-1. **Design for the network you have**, not the one you wish you had.
-2. **Security is a product feature**, not a checklist at the end.
-3. **Ship the whole path** — schema through UI through payments through deploy.
-4. **Write for the next reader**, including future you.
+```text
+  "The present is theirs;
+   the future, for which I really worked, is mine."
+                                        — N. Tesla
+```
