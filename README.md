@@ -1,105 +1,48 @@
 # Shadrack Baraka Mwahanga
 
-**Law Student | AI Builder | Team Leader - Research in a Stick**
+Full-stack engineer and law student at Kabarak University. I build systems that work under real Kenyan constraints — intermittent power, feature phones, cash-and-M-Pesa economies, and domains where the cost of getting it wrong is high.
 
-[Email](mailto:shadrackb@kabarak.ac.ke) | [LinkedIn](https://www.linkedin.com/in/shadrackbaraka) | [GitHub](https://github.com/shadrackb1)
+**Focus:** legal tech · education · health · field operations · payments
 
----
-
-## About Me
-
-I study law at Kabarak University in Kenya. I write code. I use AI daily for legal research, essay writing, and problem-solving. I hold 24 certifications in AI, including 15 from Anthropic's Claude Academy and 4 from Microsoft Learn.
-
-I am the team leader of **Research in a Stick (RIS)**, an offline AI-powered research tool that runs on a USB stick. RIS addresses the digital divide for 4.5 million plus Kenyan students who lack reliable internet.
+**Contact:** [shadrackb@kabarak.ac.ke](mailto:shadrackb@kabarak.ac.ke) · [LinkedIn](https://www.linkedin.com/in/shadrackbaraka) · [GitHub](https://github.com/shadrackb1)
 
 ---
 
 ## Research in a Stick (RIS)
 
-**Central Rift Valley Innovation Week (CRIW) 2026 | Kabarak University**
+Team lead. An offline research workstation that boots from a USB stick — no internet, no install, no cloud.
 
-RIS is a portable USB-based system that transforms any computer into a complete offline research and knowledge workstation. No internet. No installation. No cloud dependency.
+- Local LLM chat (English + Kiswahili)
+- Offline knowledge library
+- Document Q&A with citations
+- Citation formatting (APA 7, Vancouver, Harvard)
+- CSV analysis
 
-**What it does:**
-- Offline AI chat in English and Kiswahili
-- Offline knowledge library (Wikipedia + Kenya-specific content)
-- Document research engine - upload PDFs, ask questions, get cited answers
-- Citation engine - auto-format in APA 7, Vancouver, Harvard
-- Data analysis - upload CSVs, get summary statistics
+**Stack:** Ollama (Llama 3.2 / Qwen 2.5), LangChain, ChromaDB, Kiwix ZIM, Python
 
-**Tech stack:**
-- Ollama + Llama 3.2 3B / Qwen 2.5 3B
-- LangChain + ChromaDB + all-MiniLM-L6-v2
-- Kiwix + ZIM files
-- Python, HTML/JS dashboard
-
-**Impact targets:**
-- 4.5M+ university students
-- 500,000+ rural researchers and healthcare workers
-- 3M+ secondary school students
-- Price: KES 2,500 - 6,000
+Built for Central Rift Valley Innovation Week (CRIW) 2026 at Kabarak University, targeting students and researchers without reliable connectivity.
 
 ---
 
-## What I Do
+## Selected products
 
-- **Legal Research with AI** — I use Claude to analyze case law, draft legal documents, and summarize complex statutes.
-- **AI Workshops** — I organize sessions where students learn to use Claude, ChatGPT, and other tools for coursework.
-- **Building** — I code in Python, build web projects, and experiment with AI APIs.
-- **Writing** — I write about AI, law, and technology on LinkedIn and social media.
-
----
-
-## Certifications
-
-| Platform | Certification | Status |
-|----------|--------------|--------|
-| Anthropic | AI Fluency: Framework & Foundations | Completed |
-| Anthropic | Claude 101 | Completed |
-| Anthropic | Claude Code 101 | Completed |
-| Anthropic | Claude Platform 101 | Completed |
-| Anthropic | Building Effective Human Agent Teams (Beta) | Completed |
-| Anthropic | AI Fluency for Educators | Completed |
-| Anthropic | AI Fluency for Builders | Completed |
-| Anthropic | AI Fluency for Creative Work | Completed |
-| Anthropic | AI Fluency for Small Businesses | Completed |
-| Anthropic | AI Fluency for Nonprofits | Completed |
-| Anthropic | AI Fluency for pK-12 Educators | Completed |
-| Anthropic | AI Fluency for Students | Completed |
-| Anthropic | Teaching AI Fluency | Completed |
-| Anthropic | Introduction to Claude Cowork | Completed |
-| Anthropic | AI Capabilities and Limitations | Completed |
-| Microsoft Learn | Introduction to AI Concepts | Completed |
-| Microsoft Learn | Introduction to Generative AI and Agents | Completed |
-| Microsoft Learn | Explore Generative AI | Completed |
-| Microsoft Learn | Analyze Requirements for AI-Powered Business Solutions | Completed |
-| University of Helsinki | Elements of AI | Completed |
-| Analytics Vidhya | Data Science Resume with AI | Completed |
-| Kaggle | Python Coder | Completed |
-| NVIDIA DLI | Agentic AI Explained | In Progress |
-| Microsoft Learn | Explore Internet Search and Beyond | In Progress |
-
-See [full certification details](certifications.md).
+| Product | Domain |
+| --- | --- |
+| [KSAS](https://github.com/shadrackb1/KSAS) | Campus attendance with anti-fraud QR security |
+| [Juriscore](https://github.com/shadrackb1/juriscore) | Legal research for Kenyan law students |
+| [Law Beyond](https://github.com/shadrackb1/law-beyond) | Study productivity + M-Pesa premium |
+| [USSD Attendance](https://github.com/shadrackb1/ussd-attendance) | Feature-phone check-in |
+| [Foursons FieldOps](https://github.com/shadrackb1/foursons-fieldops) | Multi-county field operations |
+| [EFK Battles](https://github.com/shadrackb1/efk-battles) | eFootball tournament platform |
+| [Mingle](https://github.com/shadrackb1/mingle-app) | Matchmaking for the Kenyan market |
+| [CareConnect](https://github.com/shadrackb1/careconnect1) | Parent–caregiver coordination |
+| [OBOMOCARE](https://github.com/shadrackb1/obomocare-live) | Community organization platform |
 
 ---
 
-## Education
+## Engineering principles
 
-**Bachelor of Laws (LLB)**
-Kabarak University | Kenya
-
----
-
-## Claude Campus Ambassador Application
-
-I am applying for the Claude Campus Ambassador Program (Undergraduate Builder Club Track).
-
-See [application responses](applications/claude-campus-ambassador.md).
-
----
-
-## Contact
-
-- **Email:** shadrackb@kabarak.ac.ke
-- **LinkedIn:** [linkedin.com/in/shadrackbaraka](https://www.linkedin.com/in/shadrackbaraka)
-- **GitHub:** [github.com/shadrackb1](https://github.com/shadrackb1)
+1. **Design for the network you have**, not the one you wish you had.
+2. **Security is a product feature**, not a checklist at the end.
+3. **Ship the whole path** — schema through UI through payments through deploy.
+4. **Write for the next reader**, including future you.
