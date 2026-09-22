@@ -3,525 +3,525 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shadrack Baraka Mwahanga · Engineer</title>
-<meta name="description" content="Engineer and law student at Kabarak University. Offline AI, legal tech, field systems for Kenya." />
+<title>Shadrack Baraka Mwahanga · Constraint is the brief</title>
+<meta name="description" content="Engineer and LLB student at Kabarak. Offline AI, legal tech, field systems for Kenya." />
 <style>
-  :root {
-    --bg: #070B14;
-    --bg2: #0B1220;
-    --panel: #0F172A;
-    --line: #1E293B;
-    --text: #E2E8F0;
-    --muted: #94A3B8;
-    --dim: #64748B;
-    --cyan: #22D3EE;
-    --violet: #818CF8;
-    --pink: #F472B6;
-    --green: #34D399;
-    --amber: #F59E0B;
-    --font: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-  a { color: var(--cyan); text-decoration: none; }
-  a:hover { color: #67E8F9; }
+:root {
+  --paper: #F3EDE2;
+  --ink: #1C1917;
+  --pencil: #5C5346;
+  --mute: #6B6358;
+  --red: #C23B22;
+  --blue: #2F5D8C;
+  --green: #3D6B4F;
+  --rule: #D9D0C0;
+  --tape: #C4B8A0;
+  --mark: Georgia, "Times New Roman", serif;
+  --body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.65;
+  background-image:
+    repeating-linear-gradient(transparent, transparent 27px, var(--rule) 27px, var(--rule) 28px);
+  background-position: 0 0;
+  background-size: 100% 28px;
+  background-attachment: local;
+}
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
-  /* nav */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    background: rgba(7,11,20,0.85); backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--line);
-    padding: 0.9rem 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--font);
-  }
-  .brand { color: var(--text); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; }
-  .brand span { color: var(--cyan); }
-  .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-  .nav-links a { color: var(--muted); font-size: 0.82rem; transition: color .15s; }
-  .nav-links a:hover { color: var(--cyan); }
+nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: blur(8px);
+  font-family: var(--mono); font-size: 0.78rem;
+}
+.brand { color: var(--ink); font-weight: 600; text-decoration: none; letter-spacing: 0.04em; }
+.brand span { color: var(--red); }
+.nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav-links a { color: var(--mute); text-decoration: none; }
+.nav-links a:hover { color: var(--red); }
 
-  /* hero */
-  .hero {
-    position: relative; min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 6rem 1.5rem 4rem;
-    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(34,211,238,0.08), transparent 60%),
-                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(129,140,248,0.06), transparent 50%),
-                var(--bg);
-  }
-  #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
-  .hero-inner { position: relative; z-index: 1; max-width: 720px; }
-  .kicker {
-    font-family: var(--font); font-size: 0.75rem; letter-spacing: 3px;
-    color: var(--cyan); margin-bottom: 1rem; text-transform: uppercase;
-  }
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em;
-    line-height: 1.15; margin-bottom: 1rem;
-  }
-  .hero h1 .grad {
-    background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .hero p { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2rem; }
-  .cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: 0.75rem 1.4rem; border-radius: 8px;
-    font-family: var(--font); font-size: 0.88rem; font-weight: 500;
-    border: 1px solid var(--cyan); color: var(--cyan);
-    transition: background .15s, transform .15s;
-  }
-  .btn:hover { background: rgba(34,211,238,0.1); transform: translateY(-1px); color: var(--cyan); }
-  .btn.solid { background: var(--cyan); color: var(--bg); }
-  .btn.solid:hover { background: #67E8F9; color: var(--bg); }
+.page {
+  max-width: 920px; margin: 0 auto; padding: 2rem 1.25rem 4rem;
+  position: relative;
+}
+.page::before {
+  content: ""; position: absolute; left: 3.25rem; top: 0; bottom: 0;
+  width: 1px; background: var(--red); opacity: 0.35;
+}
+@media (max-width: 640px) {
+  .page::before { left: 1rem; }
+  section { padding-left: 0.25rem; }
+}
 
-  /* ticker */
-  .ticker {
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    background: var(--bg2); overflow: hidden; white-space: nowrap;
-    padding: 0.7rem 0; font-family: var(--font); font-size: 0.78rem; color: var(--dim);
-  }
-  .ticker-inner { display: inline-block; animation: scroll 40s linear infinite; }
-  .ticker-inner span { margin: 0 1.5rem; }
-  .ticker-inner b { color: var(--cyan); font-weight: 500; }
-  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tape {
+  display: inline-block; background: var(--tape); opacity: 0.55;
+  padding: 0.15rem 1.1rem; transform: rotate(-2deg);
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; color: var(--ink);
+}
+.stamp {
+  display: inline-block; border: 2px solid var(--red); color: var(--red);
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+  padding: 0.35rem 0.7rem; transform: rotate(-8deg);
+  animation: press 4.5s ease-in-out infinite;
+}
+@keyframes press {
+  0%, 100% { opacity: 0.5; transform: rotate(-10deg) scale(1); }
+  15% { opacity: 0.9; transform: rotate(-8deg) scale(1.04); }
+  40% { opacity: 0.72; transform: rotate(-8deg) scale(1); }
+}
 
-  /* sections */
-  section { padding: 5rem 1.5rem; max-width: 980px; margin: 0 auto; }
-  .sec-label {
-    font-family: var(--font); font-size: 0.72rem; letter-spacing: 3px;
-    color: var(--violet); text-transform: uppercase; margin-bottom: 0.75rem;
-  }
-  h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-  .lead { color: var(--muted); max-width: 640px; margin-bottom: 2rem; }
+header.hero { padding: 2.5rem 0 2rem 3.75rem; position: relative; }
+@media (max-width: 640px) { header.hero { padding-left: 1.5rem; } }
+.hero-top { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+.kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; color: var(--mute); text-transform: uppercase; }
+h1 {
+  font-family: var(--mark); font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em;
+  max-width: 16ch; margin-bottom: 0.75rem;
+}
+.lead { font-size: 1.05rem; color: var(--pencil); max-width: 38rem; margin-bottom: 1.25rem; }
+.lead strong { color: var(--red); font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.btn {
+  display: inline-block; padding: 0.7rem 1.1rem; min-height: 44px;
+  font-family: var(--mono); font-size: 0.82rem; text-decoration: none;
+  border: 1.5px solid var(--ink); color: var(--ink); background: transparent;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.solid { background: var(--red); border-color: var(--red); color: var(--paper); }
+.btn.solid:hover { background: var(--ink); border-color: var(--ink); }
 
-  /* stats */
-  .stats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem; margin-bottom: 1rem;
-  }
-  .stat-card {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
-    padding: 1.25rem; text-align: center;
-  }
-  .stat-card .num {
-    font-family: var(--font); font-size: 2rem; font-weight: 700; color: var(--cyan);
-  }
-  .stat-card:nth-child(2) .num { color: var(--violet); }
-  .stat-card:nth-child(3) .num { color: var(--green); }
-  .stat-card:nth-child(4) .num { color: var(--pink); }
-  .stat-card .lbl { font-size: 0.78rem; color: var(--dim); margin-top: 0.25rem; font-family: var(--font); }
+.sketch-wrap { margin: 1.5rem 0 0.5rem; max-width: 520px; }
+.sketch-wrap svg { width: 100%; height: auto; display: block; }
+.pen-draw {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: draw 7s ease-in-out infinite alternate;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.bleed { animation: bleed 5.5s ease-in-out infinite; }
+@keyframes bleed {
+  0%, 100% { opacity: 0.18; r: 5; }
+  50% { opacity: 0.05; r: 12; }
+}
+.dot-live { animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
 
-  /* timeline */
-  .timeline { border-left: 1px solid var(--line); padding-left: 1.5rem; margin-left: 0.5rem; }
-  .t-item { position: relative; padding-bottom: 1.75rem; }
-  .t-item::before {
-    content: ""; position: absolute; left: -1.75rem; top: 0.4rem;
-    width: 9px; height: 9px; border-radius: 50%;
-    background: var(--cyan); box-shadow: 0 0 0 3px rgba(34,211,238,0.15);
-  }
-  .t-item:nth-child(2n)::before { background: var(--violet); box-shadow: 0 0 0 3px rgba(129,140,248,0.15); }
-  .t-date { font-family: var(--font); font-size: 0.75rem; color: var(--dim); margin-bottom: 0.2rem; }
-  .t-title { font-weight: 600; margin-bottom: 0.25rem; }
-  .t-desc { color: var(--muted); font-size: 0.92rem; }
+section {
+  padding: 2.75rem 0 2.75rem 3.75rem;
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 640px) { section { padding-left: 1.5rem; } }
+.sec-label {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
+  color: var(--red); text-transform: uppercase; margin-bottom: 0.5rem;
+}
+h2 {
+  font-family: var(--mark); font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700; margin-bottom: 0.85rem; letter-spacing: -0.015em;
+}
+.blurb { color: var(--pencil); max-width: 40rem; margin-bottom: 1.5rem; }
 
-  /* projects */
-  .proj-grid { display: grid; gap: 1rem; }
-  .proj {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
-    padding: 1.5rem; transition: border-color .15s, transform .15s;
-  }
-  .proj:hover { border-color: rgba(34,211,238,0.45); transform: translateY(-2px); }
-  .proj.legal { border-left: 3px solid var(--violet); }
-  .proj.edu { border-left: 3px solid var(--cyan); }
-  .proj.field { border-left: 3px solid var(--green); }
-  .proj.pay { border-left: 3px solid var(--amber); }
-  .proj.health { border-left: 3px solid var(--pink); }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
-  .tag {
-    font-family: var(--font); font-size: 0.68rem; padding: 0.2rem 0.55rem;
-    border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
-  }
-  .proj h3 { font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 600; }
-  .proj p { color: var(--muted); font-size: 0.93rem; }
-  .tech {
-    margin-top: 0.9rem; font-family: var(--font); font-size: 0.75rem; color: var(--dim);
-  }
-  .proj .live { display: inline-block; margin-top: 0.75rem; font-family: var(--font); font-size: 0.8rem; }
+.docket { border-top: 1px solid var(--rule); }
+.docket-row {
+  display: grid; grid-template-columns: 7rem 1fr; gap: 0.75rem 1rem;
+  padding: 0.95rem 0; border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+@media (max-width: 520px) {
+  .docket-row { grid-template-columns: 1fr; }
+}
+.docket-row .when { font-family: var(--mono); font-size: 0.75rem; color: var(--mute); padding-top: 0.15rem; }
+.docket-row h3 { font-family: var(--mark); font-size: 1.05rem; margin-bottom: 0.2rem; }
+.docket-row p { color: var(--pencil); font-size: 0.95rem; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.35rem; }
+.tag {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.06em;
+  border: 1px solid var(--rule); color: var(--mute); padding: 0.15rem 0.45rem;
+}
+.tech { font-family: var(--mono); font-size: 0.72rem; color: var(--mute); margin-top: 0.35rem; }
+.live { font-family: var(--mono); font-size: 0.78rem; }
 
-  /* certs */
-  .certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
-  .cert {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1rem;
-  }
-  .cert .plat {
-    font-family: var(--font); font-size: 0.68rem; text-transform: uppercase;
-    letter-spacing: 0.06em; color: var(--dim);
-  }
-  .cert.anthropic .plat { color: #F59E0B; }
-  .cert.ms .plat { color: #60A5FA; }
-  .cert.other .plat { color: var(--violet); }
-  .cert .name { font-weight: 600; font-size: 0.92rem; margin: 0.35rem 0 0.5rem; }
-  .cert a { font-size: 0.78rem; font-family: var(--font); }
-  .media-card {
-    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
-    margin: 1.5rem 0; background: var(--panel);
-  }
-  .media-card video, .media-card img { width: 100%; display: block; }
-  .featured {
-    border: 1px solid rgba(34,211,238,0.4); border-radius: 12px; overflow: hidden;
-    margin-top: 1.5rem; background: var(--panel);
-  }
-  .featured-bar {
-    background: linear-gradient(90deg, rgba(34,211,238,0.15), rgba(129,140,248,0.15));
-    padding: 0.55rem 1rem; font-family: var(--font); font-size: 0.75rem;
-    letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan);
-    border-bottom: 1px solid var(--line);
-  }
+.checklist { list-style: none; max-width: 28rem; }
+.checklist li {
+  display: flex; gap: 0.65rem; align-items: flex-start;
+  padding: 0.45rem 0; font-family: var(--mono); font-size: 0.85rem;
+}
+.checklist .box {
+  width: 14px; height: 14px; border: 1.2px solid var(--ink); flex-shrink: 0;
+  margin-top: 0.2rem; position: relative;
+}
+.checklist .box.on::after {
+  content: ""; position: absolute; left: 2px; top: 3px; width: 7px; height: 4px;
+  border-left: 2px solid var(--green); border-bottom: 2px solid var(--green);
+  transform: rotate(-45deg);
+}
 
-  /* contact */
-  .contact-box {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
-    padding: 2rem; text-align: center;
-  }
-  .contact-box p { color: var(--muted); margin-bottom: 1rem; }
-  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; font-family: var(--font); font-size: 0.9rem; }
+.note {
+  border-left: 3px solid var(--red); padding: 0.75rem 1rem; margin: 1.25rem 0;
+  background: color-mix(in srgb, var(--red) 6%, transparent);
+  font-family: var(--mark); font-size: 1.05rem; color: var(--ink);
+}
 
-  footer {
-    text-align: center; padding: 2.5rem 1.5rem; border-top: 1px solid var(--line);
-    color: var(--dim); font-size: 0.8rem; font-family: var(--font);
-  }
+.stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem; margin: 1.25rem 0;
+}
+.stat {
+  border: 1px solid var(--rule); padding: 0.85rem 0.75rem; text-align: left;
+  background: color-mix(in srgb, var(--paper) 80%, white);
+}
+.stat .n { font-family: var(--mark); font-size: 1.6rem; color: var(--ink); }
+.stat .l { font-family: var(--mono); font-size: 0.68rem; color: var(--mute); letter-spacing: 0.06em; }
 
-  /* reveal */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.on { opacity: 1; transform: none; }
+.cert-list { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.cert {
+  display: grid; grid-template-columns: 8rem 1fr auto; gap: 0.75rem;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+  font-size: 0.92rem;
+}
+@media (max-width: 600px) {
+  .cert { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+.cert .plat { font-family: var(--mono); font-size: 0.7rem; color: var(--mute); letter-spacing: 0.06em; }
+.cert a { font-family: var(--mono); font-size: 0.75rem; }
 
-  @media (max-width: 600px) {
-    .nav-links { gap: 0.7rem; }
-    .nav-links a { font-size: 0.72rem; }
-    section { padding: 3.5rem 1.1rem; }
-  }
+.video-frame {
+  border: 1px solid var(--rule); background: var(--ink); margin: 1rem 0 1.5rem;
+  max-width: 480px; overflow: hidden;
+}
+.video-frame video { width: 100%; display: block; }
+.video-cap { font-family: var(--mono); font-size: 0.7rem; color: var(--mute); padding: 0.4rem 0.5rem; background: var(--paper); }
+
+footer {
+  padding: 2rem 1.25rem 3rem 3.75rem; border-top: 1px solid var(--rule);
+  font-family: var(--mono); font-size: 0.75rem; color: var(--mute);
+}
+@media (max-width: 640px) { footer { padding-left: 1.5rem; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp, .pen-draw, .bleed, .dot-live { animation: none !important; }
+  .pen-draw { stroke-dashoffset: 0; }
+  html { scroll-behavior: auto; }
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="brand" href="#">shadrack<span>.</span>build</a>
+  <a class="brand" href="#">sbm<span>.</span>field</a>
   <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#projects">Projects</a>
+    <a href="#work">Log</a>
+    <a href="#projects">Cases</a>
+    <a href="#lab">Lab</a>
     <a href="#certs">Certs</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<div class="page">
+
 <header class="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-inner">
-    <div class="kicker">Engineer · LLB Kabarak · Nairobi</div>
-    <h1>Systems that hold up<br /><span class="grad">on real networks.</span></h1>
-    <p>Offline AI, legal tech, field ops, campus infrastructure. Built for feature phones, intermittent data, and M-Pesa rails.</p>
-    <div class="cta-row">
-      <a class="btn solid" href="#projects">Selected work</a>
-      <a class="btn" href="https://github.com/shadrackb1" target="_blank" rel="noopener">GitHub</a>
+  <div class="hero-top">
+    <div>
+      <div class="kicker">Field file · Kabarak · Nakuru / Nairobi</div>
+      <div class="tape" style="margin-top:0.5rem">SHIPPED WORK · REV 2026.09</div>
     </div>
+    <div class="stamp">FIELD COPY</div>
+  </div>
+
+  <h1>Constraint is the brief.</h1>
+  <p class="lead">
+    I am <strong>Shadrack Baraka Mwahanga</strong>, engineer and LLB student at Kabarak.
+    I build for the Kenya most stacks ignore: no reliable internet, feature phones,
+    screenshot fraud, M-Pesa cash rails, crews in 47 counties. Law school taught me to read the rule;
+    field ops taught me to build the one that survives.
+  </p>
+  <div class="cta-row">
+    <a class="btn solid" href="https://shadrackb1.github.io/playground/lab.html" target="_blank" rel="noopener">Open Shadrack Lab</a>
+    <a class="btn" href="#projects">Case index</a>
+    <a class="btn" href="https://github.com/shadrackb1" target="_blank" rel="noopener">GitHub</a>
+  </div>
+
+  <div class="sketch-wrap" aria-hidden="true">
+    <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="520" height="200" fill="none"/>
+      <circle class="bleed" cx="460" cy="40" r="8" fill="#2F5D8C" opacity="0.15"/>
+      <path class="pen-draw" d="M30 50 L140 50 M30 100 L140 100 M30 150 L140 150"
+            stroke="#1C1917" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path class="pen-draw" d="M150 50 Q200 35 250 50" stroke="#1C1917" stroke-width="1.3" fill="none"/>
+      <path class="pen-draw" d="M150 100 Q200 85 250 100" stroke="#1C1917" stroke-width="1.3" fill="none"/>
+      <path class="pen-draw" d="M150 150 Q200 135 250 150" stroke="#1C1917" stroke-width="1.3" fill="none"/>
+      <path class="pen-draw" d="M360 50 L460 50 M360 100 L460 100 M360 150 L460 150"
+            stroke="#1C1917" stroke-width="1.3" fill="none"/>
+      <rect x="30" y="35" width="110" height="30" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+      <rect x="30" y="85" width="110" height="30" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+      <rect x="30" y="135" width="110" height="30" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+      <rect x="250" y="35" width="110" height="30" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+      <rect x="250" y="85" width="110" height="30" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+      <rect x="250" y="135" width="110" height="30" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+      <rect x="460" y="35" width="50" height="30" fill="none" stroke="#C23B22" stroke-width="1.3"/>
+      <rect x="460" y="85" width="50" height="30" fill="none" stroke="#C23B22" stroke-width="1.3"/>
+      <rect x="460" y="135" width="50" height="30" fill="none" stroke="#C23B22" stroke-width="1.3"/>
+      <text x="42" y="55" font-family="Menlo,Consolas,monospace" font-size="9" fill="#5C5346">no internet</text>
+      <text x="42" y="105" font-family="Menlo,Consolas,monospace" font-size="9" fill="#5C5346">feature phone</text>
+      <text x="42" y="155" font-family="Menlo,Consolas,monospace" font-size="9" fill="#5C5346">QR fraud</text>
+      <text x="258" y="55" font-family="Menlo,Consolas,monospace" font-size="9" fill="#5C5346">RIS / local</text>
+      <text x="258" y="105" font-family="Menlo,Consolas,monospace" font-size="9" fill="#5C5346">USSD</text>
+      <text x="258" y="155" font-family="Menlo,Consolas,monospace" font-size="9" fill="#5C5346">5s QR + bind</text>
+      <text x="468" y="55" font-family="Menlo,Consolas,monospace" font-size="8" fill="#C23B22">USB</text>
+      <text x="468" y="105" font-family="Menlo,Consolas,monospace" font-size="8" fill="#C23B22">any</text>
+      <text x="468" y="155" font-family="Menlo,Consolas,monospace" font-size="8" fill="#C23B22">dead</text>
+      <circle class="dot-live" cx="200" cy="50" r="2.5" fill="#C23B22" style="animation-delay:0.2s"/>
+      <circle class="dot-live" cx="200" cy="100" r="2.5" fill="#C23B22" style="animation-delay:0.6s"/>
+      <circle class="dot-live" cx="200" cy="150" r="2.5" fill="#C23B22" style="animation-delay:1s"/>
+    </svg>
   </div>
 </header>
 
-<div class="ticker">
-  <div class="ticker-inner">
-    <span><b>RIS</b> · 4.5M students target</span>
-    <span><b>KSAS</b> · 5-layer attendance security</span>
-    <span><b>USSD</b> · works without a smartphone</span>
-    <span><b>24</b> AI certifications</span>
-    <span><b>47</b> counties in field-ops scope</span>
-    <span><b>Ollama</b> · LangChain · ChromaDB · Kiwix</span>
-    <span><b>RIS</b> · 4.5M students target</span>
-    <span><b>KSAS</b> · 5-layer attendance security</span>
-    <span><b>USSD</b> · works without a smartphone</span>
-    <span><b>24</b> AI certifications</span>
-    <span><b>47</b> counties in field-ops scope</span>
-    <span><b>Ollama</b> · LangChain · ChromaDB · Kiwix</span>
-  </div>
-</div>
-
-<section id="about" class="reveal">
+<section id="about">
   <div class="sec-label">01 · About</div>
-  <h2>Constraint first. Product second. Stack last.</h2>
-  <p class="lead">
-    I am a law student at Kabarak University and the team lead behind Research in a Stick.
-    I organize robotics and applied AI workshops on campus. Most of my work solves a gap that
-    looks obvious after you see it: people without reliable internet still need research tools,
+  <h2>Law and code on the same desk</h2>
+  <p class="blurb">
+    I organize robotics and applied AI workshops on campus and lead Research in a Stick.
+    The gaps I chase look obvious after you see them: people without reliable internet still need research tools,
     attendance that cannot be faked by screenshot, and legal knowledge in plain language.
   </p>
-  <div class="stats-grid">
-    <div class="stat-card"><div class="num" data-count="24">0</div><div class="lbl">AI certs</div></div>
-    <div class="stat-card"><div class="num" data-count="15">0</div><div class="lbl">Claude Academy</div></div>
-    <div class="stat-card"><div class="num">4.5M</div><div class="lbl">RIS reach</div></div>
-    <div class="stat-card"><div class="num" data-count="110">0</div><div class="lbl">Repos shipped</div></div>
+  <div class="note">Systems that hold up on real Kenyan networks. Not slide decks.</div>
+  <div class="stats">
+    <div class="stat"><div class="n">24</div><div class="l">AI CERTS</div></div>
+    <div class="stat"><div class="n">15</div><div class="l">CLAUDE ACADEMY</div></div>
+    <div class="stat"><div class="n">4.5M</div><div class="l">RIS REACH TARGET</div></div>
+    <div class="stat"><div class="n">47</div><div class="l">COUNTIES IN SCOPE</div></div>
   </div>
+  <ul class="checklist">
+    <li><span class="box on"></span><span>USSD path works offline</span></li>
+    <li><span class="box on"></span><span>QR dies in 5 seconds</span></li>
+    <li><span class="box"></span><span>ship the stick</span></li>
+  </ul>
 </section>
 
-<section id="work" class="reveal">
-  <div class="sec-label">02 · Timeline</div>
+<section id="work">
+  <div class="sec-label">02 · Log</div>
   <h2>What I have been shipping</h2>
-  <div class="timeline">
-    <div class="t-item">
-      <div class="t-date">Nov 2026</div>
-      <div class="t-title">Microsoft Ignite</div>
-      <div class="t-desc">San Francisco. AI, security, and cloud. Registered attendee.</div>
+  <div class="docket">
+    <div class="docket-row">
+      <div class="when">Nov 2026</div>
+      <div><h3>Microsoft Ignite</h3><p>San Francisco. AI, security, and cloud. Registered attendee.</p></div>
     </div>
-    <div class="t-item">
-      <div class="t-date">Sep 2026</div>
-      <div class="t-title">Research in a Stick · CRIW 2026</div>
-      <div class="t-desc">Offline AI research workstation on a USB stick. Team of four. Kabarak University.</div>
+    <div class="docket-row">
+      <div class="when">Sep 2026</div>
+      <div><h3>Research in a Stick · CRIW 2026</h3><p>Offline AI research workstation on a USB stick. Team of four. Kabarak University.</p></div>
     </div>
-    <div class="t-item">
-      <div class="t-date">Aug 2026</div>
-      <div class="t-title">24th AI certification</div>
-      <div class="t-desc">Full Anthropic Claude Academy track complete. Fifteen badges.</div>
+    <div class="docket-row">
+      <div class="when">Aug 2026</div>
+      <div><h3>24th AI certification</h3><p>Full Anthropic Claude Academy track. Fifteen badges.</p></div>
     </div>
-    <div class="t-item">
-      <div class="t-date">Jun 2026</div>
-      <div class="t-title">KSAS pilot with the board</div>
-      <div class="t-desc">Expiring QR, device binding, five-layer check-in. Pilot cleared. Next phase underway.</div>
+    <div class="docket-row">
+      <div class="when">Jun 2026</div>
+      <div><h3>KSAS pilot with the board</h3><p>Expiring QR, device binding, five-layer check-in. Pilot cleared. Next phase underway.</p></div>
     </div>
-    <div class="t-item">
-      <div class="t-date">Jan 2026</div>
-      <div class="t-title">Joined Kabarak University</div>
-      <div class="t-desc">LLB. First year. Law and code on the same desk.</div>
+    <div class="docket-row">
+      <div class="when">Jan 2026</div>
+      <div><h3>Joined Kabarak University</h3><p>LLB. First year.</p></div>
     </div>
   </div>
 </section>
 
-<section id="projects" class="reveal">
-  <div class="sec-label">03 · Products</div>
+<section id="projects">
+  <div class="sec-label">03 · Cases</div>
   <h2>Selected work</h2>
-  <p class="lead">Flagship systems I designed, built, or lead. Client and campus work lives in the full repo list.</p>
-
-  <div class="proj-grid">
-    <article class="proj edu">
-      <div class="tags"><span class="tag">CRIW 2026</span><span class="tag">Team leader</span><span class="tag">Offline AI</span></div>
-      <h3>Research in a Stick (RIS)</h3>
-      <p>USB stick that runs AI offline. No internet, no cloud, no install. Plug in, open a browser, get chat, knowledge library, document analysis, and citation formatting in English and Kiswahili. Built for students and researchers the internet misses.</p>
-      <div class="tech">Python · Ollama · LangChain · ChromaDB · Kiwix · Llama 3.2 · Qwen 2.5</div>
-    </article>
-
-    <article class="proj edu">
-      <div class="tags"><span class="tag">Campus</span><span class="tag">Security</span><span class="tag">Pilot</span></div>
-      <h3>Kabarak Smart Attendance (KSAS)</h3>
-      <p>QR codes that refresh every five seconds. Device fingerprint, one-time tokens, optional GPS and campus IP. Screenshots of old codes fail by design. Role dashboards for students, lecturers, admins, HODs, and deans.</p>
-      <div class="tech">React · TypeScript · Firebase · Supabase · Tailwind</div>
-      <a class="live" href="https://ksas-ten.vercel.app" target="_blank" rel="noopener">Live demo →</a>
-    </article>
-
-    <article class="proj legal">
-      <div class="tags"><span class="tag">Legal tech</span><span class="tag">Research</span></div>
-      <h3>Juriscore</h3>
-      <p>Legal research for Kenyan law students. Case search, structured briefs, side-by-side comparison, citation generator. Built so students spend time on arguments, not hunting PDFs.</p>
-      <div class="tech">React Native · Expo · FastAPI · Supabase</div>
-    </article>
-
-    <article class="proj legal">
-      <div class="tags"><span class="tag">Civic tech</span><span class="tag">Literacy</span></div>
-      <h3>Know Your Rights KE</h3>
-      <p>Plain-language legal rights for Kenyan citizens. Arrest, housing, work, traffic, consumer. Mobile-first and offline-friendly so it works on the phones people already have.</p>
-      <div class="tech">React · TypeScript · Node · Express · Firebase</div>
-    </article>
-
-    <article class="proj field">
-      <div class="tags"><span class="tag">USSD</span><span class="tag">Offline-first</span></div>
-      <h3>USSD Attendance</h3>
-      <p>Check-in on any handset. Dial a code, enter the session code, done. No app, no camera, no data bundle. For campuses and training sites where QR is a luxury.</p>
-      <div class="tech">Node · Express · PostgreSQL · JWT</div>
-    </article>
-
-    <article class="proj pay">
-      <div class="tags"><span class="tag">Tournaments</span><span class="tag">M-Pesa</span></div>
-      <h3>EFK Battles</h3>
-      <p>Anonymous eFootball Mobile tournaments. KES 100 entry, auto-brackets when all 32 pay, WhatsApp fixtures, screenshot verification. Youth esports partner branding.</p>
-      <div class="tech">Next.js · Supabase · Lipana M-Pesa · WhatsApp</div>
-    </article>
-
-    <article class="proj field">
-      <div class="tags"><span class="tag">Field ops</span><span class="tag">47 counties</span></div>
-      <h3>Foursons FieldOps</h3>
-      <p>Sites, vehicles, fuel fraud flags, breakdowns, deliveries, worker QR IDs, casual registry, boss dashboard. One record for a team spread across Kenya.</p>
-      <div class="tech">React · TypeScript · Firebase · Maps</div>
-    </article>
-
-    <article class="proj health">
-      <div class="tags"><span class="tag">Health</span><span class="tag">Community</span></div>
-      <h3>OBOMOCARE</h3>
-      <p>Community-based organization platform for Kisii and Nyamira. Programs, stories, media pipeline, diaspora engagement.</p>
-      <div class="tech">React · TypeScript · Firebase · PWA · Cloudinary</div>
-    </article>
-
-    <article class="proj legal">
-      <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Rights</span></div>
-      <h3>HakiChatBot</h3>
-      <p>WhatsApp bot for human rights and agribusiness questions. Plain language answers on constitutional rights and market pricing.</p>
-      <div class="tech">Python · JavaScript · WhatsApp API</div>
-    </article>
+  <p class="blurb">Flagship systems I designed, built, or lead. Client and campus work lives in the full repo list.</p>
+  <div class="docket">
+    <div class="docket-row">
+      <div class="when">RIS</div>
+      <div>
+        <div class="tag-row"><span class="tag">CRIW 2026</span><span class="tag">Team leader</span><span class="tag">Offline AI</span></div>
+        <h3>Research in a Stick</h3>
+        <p>USB stick that runs AI offline. No internet, no cloud, no install. Plug in, open a browser, get chat, knowledge library, document analysis, and citation formatting in English and Kiswahili. Built for students and researchers the internet misses. Price point around KES 2,500–6,000.</p>
+        <div class="tech">Python · Ollama · LangChain · ChromaDB · Kiwix · Llama 3.2 · Qwen 2.5</div>
+        <a class="live" href="https://github.com/shadrackb1/research-in-a-stick" target="_blank" rel="noopener">Repo →</a>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">KSAS</div>
+      <div>
+        <div class="tag-row"><span class="tag">Campus</span><span class="tag">Security</span><span class="tag">Pilot</span></div>
+        <h3>Kabarak Smart Attendance</h3>
+        <p>QR codes that refresh every five seconds. Device fingerprint, one-time tokens, optional GPS and campus IP. Screenshots of old codes fail by design. Role dashboards for students, lecturers, admins, HODs, and deans.</p>
+        <div class="tech">React · TypeScript · Firebase · Supabase · Tailwind</div>
+        <a class="live" href="https://ksas-ten.vercel.app" target="_blank" rel="noopener">Live demo →</a>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">Juriscore</div>
+      <div>
+        <div class="tag-row"><span class="tag">Legal tech</span><span class="tag">Research</span></div>
+        <h3>Juriscore</h3>
+        <p>Legal research for Kenyan law students. Case search, structured briefs, side-by-side comparison, citation generator. Students spend time on arguments, not hunting PDFs.</p>
+        <div class="tech">React Native · Expo · FastAPI · Supabase</div>
+        <a class="live" href="https://juriscore-three.vercel.app" target="_blank" rel="noopener">Live →</a>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">Know Your Rights</div>
+      <div>
+        <div class="tag-row"><span class="tag">Civic tech</span><span class="tag">Literacy</span></div>
+        <h3>Know Your Rights KE</h3>
+        <p>Plain-language legal rights for Kenyan citizens. Arrest, housing, work, traffic, consumer. Mobile-first and offline-friendly so it works on the phones people already have.</p>
+        <div class="tech">React · TypeScript · Node · Express · Firebase</div>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">USSD att.</div>
+      <div>
+        <div class="tag-row"><span class="tag">USSD</span><span class="tag">Offline-first</span></div>
+        <h3>USSD Attendance</h3>
+        <p>Check-in on any handset. Dial a code, enter the session code, done. No app, no camera, no data bundle. For campuses and training sites where QR is a luxury.</p>
+        <div class="tech">Node · Express · PostgreSQL · JWT</div>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">EFK</div>
+      <div>
+        <div class="tag-row"><span class="tag">Tournaments</span><span class="tag">M-Pesa</span></div>
+        <h3>EFK Battles</h3>
+        <p>Anonymous eFootball Mobile tournaments. KES 100 entry, auto-brackets when all 32 pay, WhatsApp fixtures, screenshot verification.</p>
+        <div class="tech">Next.js · Supabase · Lipana M-Pesa · WhatsApp</div>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">FieldOps</div>
+      <div>
+        <div class="tag-row"><span class="tag">Field ops</span><span class="tag">47 counties</span></div>
+        <h3>Foursons FieldOps</h3>
+        <p>Sites, vehicles, fuel fraud flags, breakdowns, deliveries, worker QR IDs, casual registry, boss dashboard. One record for a team spread across Kenya.</p>
+        <div class="tech">React · TypeScript · Firebase · Maps</div>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">OBOMOCARE</div>
+      <div>
+        <div class="tag-row"><span class="tag">Health</span><span class="tag">Community</span></div>
+        <h3>OBOMOCARE</h3>
+        <p>Community-based organization platform for Kisii and Nyamira. Programs, stories, media pipeline, diaspora engagement.</p>
+        <div class="tech">React · TypeScript · Firebase · PWA · Cloudinary</div>
+      </div>
+    </div>
+    <div class="docket-row">
+      <div class="when">Haki</div>
+      <div>
+        <div class="tag-row"><span class="tag">WhatsApp</span><span class="tag">Rights</span></div>
+        <h3>Haki / AgriShield</h3>
+        <p>WhatsApp flows for rights questions and agribusiness worker grievances. Plain language, multi-language, SLA escalation.</p>
+        <div class="tech">Python · JavaScript · WhatsApp API</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="certs" class="reveal">
-  <div class="sec-label">04 · Credentials</div>
-  <h2>24 AI certifications</h2>
-  <p class="lead">Verification links from the platforms. Always check the issuer.</p>
+<section id="lab">
+  <div class="sec-label">04 · Lab</div>
+  <h2>Stay here a while</h2>
+  <p class="blurb">
+    Six interactive systems on the playground. Cursor is the control. Flow field, particle life,
+    attractor, Chladni sand, Julia, soft bodies. Nothing loops the same way twice, and idle mode keeps breathing.
+  </p>
+  <div class="cta-row">
+    <a class="btn solid" href="https://shadrackb1.github.io/playground/lab.html" target="_blank" rel="noopener">Open the lab</a>
+    <a class="btn" href="https://shadrackb1.github.io/playground/" target="_blank" rel="noopener">Games &amp; mocks</a>
+    <a class="btn" href="https://github.com/shadrackb1/shadrackb1" target="_blank" rel="noopener">GitHub profile</a>
+  </div>
+</section>
 
-  <div class="media-card">
+<section id="certs">
+  <div class="sec-label">05 · Credentials</div>
+  <h2>24 AI certifications</h2>
+  <p class="blurb">Verification links from the platforms. Always check the issuer.</p>
+
+  <div class="video-frame">
     <video autoplay muted loop playsinline>
       <source src="badges-video.mp4" type="video/mp4" />
     </video>
+    <div class="video-cap">badge reel · mute autoplay</div>
   </div>
 
-  <h3 style="font-family:var(--font);font-size:0.85rem;color:var(--muted);margin:1.5rem 0 0.75rem;letter-spacing:0.08em;">ANTHROPIC CLAUDE ACADEMY · 15</h3>
-  <div class="certs">
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency: Framework &amp; Foundations</div><a href="https://academy.claude.com/verify/0a0ceadeca69645a3ab862ad15932ccd" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Claude 101</div><a href="https://academy.claude.com/verify/aba71042036e941fcbe4e9ac5bf38c3d" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Claude Code 101</div><a href="https://academy.claude.com/verify/9a11d27a075b8427574a2d00ea9f7e18" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Claude Platform 101</div><a href="https://academy.claude.com/verify/69c374df6efa1072995e9217e647c621" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Building Effective Human Agent Teams</div><a href="https://academy.claude.com/verify/ade1e206f9db411e7121feb1421f8c7e" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Educators</div><a href="https://academy.claude.com/verify/c3d59591b5fddc3d84ce367b8c4247de" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Builders</div><a href="https://academy.claude.com/verify/474ee3da11277eca2414063256d80a1f" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Creative Work</div><a href="https://academy.claude.com/verify/6dca1fe8c393fa100090ee6297aef7b1" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Small Businesses</div><a href="https://academy.claude.com/verify/b56a86ecb219d0bc83f9d053e9cefe3b" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Nonprofits</div><a href="https://academy.claude.com/verify/915a1775050176a43d02a28fd9bdf302" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for pK-12 Educators</div><a href="https://academy.claude.com/verify/2343dbc8a63632d5b9ccf39a49c90185" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Fluency for Students</div><a href="https://academy.claude.com/verify/08feefe9cb3a78f06baa8048fc12516d" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Teaching AI Fluency</div><a href="https://academy.claude.com/verify/4d564e17ed333d1d31a3b3dd908700ac" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">Introduction to Claude Cowork</div><a href="https://academy.claude.com/verify/31b3c294eca0bbc3833ba48322c2df84" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert anthropic"><div class="plat">Anthropic</div><div class="name">AI Capabilities and Limitations</div><a href="https://academy.claude.com/verify/5436a096fc04bf2aba9fbe3d2be6efbc" target="_blank" rel="noopener">Verify →</a></div>
+  <h3 class="sec-label" style="margin-top:1.5rem">Anthropic Claude Academy · 15</h3>
+  <div class="cert-list">
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency: Framework &amp; Foundations</div><a href="https://academy.claude.com/verify/0a0ceadeca69645a3ab862ad15932ccd" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>Claude 101</div><a href="https://academy.claude.com/verify/aba71042036e941fcbe4e9ac5bf38c3d" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>Claude Code 101</div><a href="https://academy.claude.com/verify/9a11d27a075b8427574a2d00ea9f7e18" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>Claude Platform 101</div><a href="https://academy.claude.com/verify/69c374df6efa1072995e9217e647c621" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>Building Effective Human Agent Teams</div><a href="https://academy.claude.com/verify/ade1e206f9db411e7121feb1421f8c7e" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for Educators</div><a href="https://academy.claude.com/verify/c3d59591b5fddc3d84ce367b8c4247de" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for Builders</div><a href="https://academy.claude.com/verify/474ee3da11277eca2414063256d80a1f" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for Creative Work</div><a href="https://academy.claude.com/verify/6dca1fe8c393fa100090ee6297aef7b1" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for Small Businesses</div><a href="https://academy.claude.com/verify/b56a86ecb219d0bc83f9d053e9cefe3b" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for Nonprofits</div><a href="https://academy.claude.com/verify/915a1775050176a43d02a28fd9bdf302" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for pK-12 Educators</div><a href="https://academy.claude.com/verify/2343dbc8a63632d5b9ccf39a49c90185" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Fluency for Students</div><a href="https://academy.claude.com/verify/08feefe9cb3a78f06baa8048fc12516d" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>Teaching AI Fluency</div><a href="https://academy.claude.com/verify/4d564e17ed333d1d31a3b3dd908700ac" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>Introduction to Claude Cowork</div><a href="https://academy.claude.com/verify/31b3c294eca0bbc3833ba48322c2df84" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Anthropic</div><div>AI Capabilities and Limitations</div><a href="https://academy.claude.com/verify/5436a096fc04bf2aba9fbe3d2be6efbc" target="_blank" rel="noopener">Verify →</a></div>
   </div>
 
-  <h3 style="font-family:var(--font);font-size:0.85rem;color:var(--muted);margin:1.75rem 0 0.75rem;letter-spacing:0.08em;">MICROSOFT LEARN · 4</h3>
-  <div class="certs">
-    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Intro to Generative AI and Agents</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Introduction to AI Concepts</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Explore Generative AI</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert ms"><div class="plat">Microsoft Learn</div><div class="name">Analyze Requirements for AI Solutions</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+  <h3 class="sec-label" style="margin-top:1.5rem">Microsoft Learn · 4</h3>
+  <div class="cert-list">
+    <div class="cert"><div class="plat">Microsoft</div><div>Intro to Generative AI and Agents</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Microsoft</div><div>Introduction to AI Concepts</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Microsoft</div><div>Explore Generative AI</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">Microsoft</div><div>Analyze Requirements for AI Solutions</div><a href="https://learn.microsoft.com/en-us/users/shadrackbarakamwahanga-4798/" target="_blank" rel="noopener">Verify →</a></div>
   </div>
 
-  <h3 style="font-family:var(--font);font-size:0.85rem;color:var(--muted);margin:1.75rem 0 0.75rem;letter-spacing:0.08em;">OTHER · 3 + 2 IN PROGRESS</h3>
-  <div class="certs">
-    <div class="cert other"><div class="plat">Helsinki</div><div class="name">Elements of AI</div><a href="https://certificates.mooc.fi/validate/t7ejoyzwnxg" target="_blank" rel="noopener">Verify →</a></div>
-    <div class="cert other"><div class="plat">AnalyticsV</div><div class="name">Data Science Resume with AI</div><span style="font-size:0.78rem;color:var(--dim);font-family:var(--font)">ID 102ak7rc1n</span></div>
-    <div class="cert other"><div class="plat">Kaggle</div><div class="name">Python Coder Badge</div><a href="https://www.kaggle.com/shadrackbarakamwahanga" target="_blank" rel="noopener">Profile →</a></div>
-    <div class="cert other"><div class="plat">NVIDIA DLI</div><div class="name">Agentic AI Explained</div><span style="font-size:0.78rem;color:var(--dim);font-family:var(--font)">In progress</span></div>
-    <div class="cert other"><div class="plat">Microsoft Learn</div><div class="name">Explore Internet Search and Beyond</div><span style="font-size:0.78rem;color:var(--dim);font-family:var(--font)">In progress</span></div>
+  <h3 class="sec-label" style="margin-top:1.5rem">Other · 3 + 2 in progress</h3>
+  <div class="cert-list">
+    <div class="cert"><div class="plat">Helsinki</div><div>Elements of AI</div><a href="https://certificates.mooc.fi/validate/t7ejoyzwnxg" target="_blank" rel="noopener">Verify →</a></div>
+    <div class="cert"><div class="plat">AnalyticsV</div><div>Data Science Resume with AI</div><span style="font-family:var(--mono);font-size:0.75rem;color:var(--mute)">ID 102ak7rc1n</span></div>
+    <div class="cert"><div class="plat">Kaggle</div><div>Python Coder Badge</div><a href="https://www.kaggle.com/shadrackbarakamwahanga" target="_blank" rel="noopener">Profile →</a></div>
+    <div class="cert"><div class="plat">NVIDIA DLI</div><div>Agentic AI Explained</div><span style="font-family:var(--mono);font-size:0.75rem;color:var(--mute)">In progress</span></div>
+    <div class="cert"><div class="plat">Microsoft</div><div>Explore Internet Search and Beyond</div><span style="font-family:var(--mono);font-size:0.75rem;color:var(--mute)">In progress</span></div>
   </div>
 
-  <div class="featured">
-    <div class="featured-bar">Featured certificate</div>
-    <img src="elements-of-ai.png" alt="Elements of AI certificate" />
-  </div>
+  <p class="blurb" style="margin-top:1.25rem">
+    Featured certificate scan and full write-ups sit in the repo
+    (<code style="font-family:var(--mono);font-size:0.85rem">certifications.md</code> ·
+    <code style="font-family:var(--mono);font-size:0.85rem">cv.md</code>).
+    Open the <a href="https://shadrackb1.github.io/playground/credentials.html" target="_blank" rel="noopener">credentials hub</a> for the 24-link index.
+  </p>
+  <img src="elements-of-ai.png" alt="Elements of AI certificate" style="max-width:360px;border:1px solid var(--rule);margin-top:0.5rem;display:block" />
 </section>
 
-<section id="contact" class="reveal">
-  <div class="sec-label">05 · Contact</div>
+<section id="contact">
+  <div class="sec-label">06 · Contact</div>
   <h2>Reach me</h2>
-  <div class="contact-box">
-    <p>Projects, workshops, campus programs, or collaboration.</p>
-    <div class="contact-links">
-      <a href="mailto:shadrackb@kabarak.ac.ke">shadrackb@kabarak.ac.ke</a>
-      <a href="https://linkedin.com/in/shadrackbaraka" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/shadrackb1" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://shadrackb1.github.io/playground/" target="_blank" rel="noopener">Playground</a>
-    </div>
+  <p class="blurb">Projects, workshops, campus programs, or collaboration.</p>
+  <div class="cta-row">
+    <a class="btn solid" href="mailto:shadrackb@kabarak.ac.ke">shadrackb@kabarak.ac.ke</a>
+    <a class="btn" href="https://www.linkedin.com/in/shadrackbaraka" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/shadrackb1" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 
 <footer>
-  Shadrack Baraka Mwahanga · Kabarak University · Nairobi
+  Shadrack Baraka Mwahanga · Kabarak University · Constraint is the brief
 </footer>
 
-<script>
-// hero particle network
-(function () {
-  const c = document.getElementById('hero-canvas');
-  if (!c) return;
-  const ctx = c.getContext('2d');
-  let w, h, pts, raf;
-  function size() {
-    w = c.width = c.offsetWidth * devicePixelRatio;
-    h = c.height = c.offsetHeight * devicePixelRatio;
-    const n = Math.min(70, Math.floor((w * h) / 28000));
-    pts = Array.from({ length: n }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.35 * devicePixelRatio,
-      vy: (Math.random() - 0.5) * 0.35 * devicePixelRatio,
-    }));
-  }
-  function frame() {
-    ctx.clearRect(0, 0, w, h);
-    for (const p of pts) {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > w) p.vx *= -1;
-      if (p.y < 0 || p.y > h) p.vy *= -1;
-    }
-    for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d = Math.hypot(dx, dy);
-        const max = 140 * devicePixelRatio;
-        if (d < max) {
-          ctx.strokeStyle = 'rgba(34,211,238,' + (0.22 * (1 - d / max)) + ')';
-          ctx.lineWidth = devicePixelRatio * 0.7;
-          ctx.beginPath();
-          ctx.moveTo(pts[i].x, pts[i].y);
-          ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    for (const p of pts) {
-      ctx.fillStyle = 'rgba(129,140,248,0.7)';
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 1.4 * devicePixelRatio, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    raf = requestAnimationFrame(frame);
-  }
-  size(); frame();
-  addEventListener('resize', size);
-})();
-
-// reveal on scroll
-const io = new IntersectionObserver((es) => {
-  es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('on'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-
-// count-up stats
-const cio = new IntersectionObserver((es) => {
-  es.forEach((e) => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = +el.dataset.count;
-    let n = 0;
-    const step = Math.max(1, Math.floor(target / 40));
-    const t = setInterval(() => {
-      n = Math.min(target, n + step);
-      el.textContent = n;
-      if (n >= target) clearInterval(t);
-    }, 30);
-    cio.unobserve(el);
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-count]').forEach((el) => cio.observe(el));
-</script>
+</div>
 </body>
 </html>
